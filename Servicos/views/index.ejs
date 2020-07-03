@@ -1,0 +1,36 @@
+<%- include('./partials/header.ejs') %>
+<body>
+    <%- include('./partials/navbar.ejs') %>
+
+    <div class="container">
+        
+        <div class="card" id="form-simu"> 
+  
+            <div class="card-header">
+  
+              </div>
+  
+               <div class="card-body">
+                       
+                  <form >
+  
+                      <div class="row">
+          
+                        <div class="col-md-10 offset-md-1"> 
+                          
+                            <textarea id="dataInp" placeholder="Lista de dados a ser analisado" name="dataInp" class="form-control" rows="13"></textarea>
+          
+                            <br/> <textarea id="dataResu" placeholder="Resultado da analise será exibido aqui" name="dataResult"  class="form-control" rows="10" readonly></textarea>
+
+                            <br/> <button type="button" class="btn btn-dark" onclick="createAnalise()" >Analisar </button>
+                        </div>
+                  
+                      </div>
+                  
+                  </form>
+                  
+              </div>
+          </div>  
+    </div>
+</body>
+<%- include('./partials/footer.ejs') %>
