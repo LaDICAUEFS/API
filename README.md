@@ -6,7 +6,7 @@ Application Programming Interface **A.P.I.**  *(Interface de Programação de Ap
 ## Estuturação de diretórios
 API está estruturada da seguinte forma :
 
->![Estuturação de diretórios](https://github.com/LaDICAUEFS/API/tree/master/img/img.png)
+>![Estuturação de diretórios](https://github.com/LaDICAUEFS/API/blob/master/img/img.PNG)
 >
 >*  **API(REST)** : nele se encontrar o core da api, responsável por realizar os processos serialização e desserialização com os dados que são enviados para analise, produzindo assim os a lista de dados que vão se analisados matematicamente e também  a realização de  cadastros , exibição , edição , deleção *(C.R.U.D.)* de módulos de analise matemática  pelo protocolo TCP/IP  ou for arquivo.
 >
