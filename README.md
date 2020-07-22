@@ -14,6 +14,7 @@ API está estruturada da seguinte forma :
 >
 >*  **Servicos** : nele está a interface simples e intuitiva que  consome  o os endpoints do core da API permitindo  que os desenvolvedores realizem testes rápidos e assim comece a elaboração de interface mais complexa para o simulador , e também  possibilite  cadastra , atualizar , exibir  e  deletas os   módulos matemáticos  
 
+-------------------------------------------------------------------------
 
 ## Módulos
 * [Body Parser]( https://www.npmjs.com/package/body-parser ) - Pegar as informações do formulário.
@@ -24,7 +25,7 @@ API está estruturada da seguinte forma :
 * [Bootstrap](https://getbootstrap.com/) - É um framework web com para desenvolvimento de componentes de interface e front-end para sites e aplicações web usando HTML, CSS e JavaScript.
 * [Firebase]( https://firebase.google.com/?hl=pt-br) - Banco de dados não relacional
 
-
+------------------------------------------------------------------------
 
 ## Endpoints
 
