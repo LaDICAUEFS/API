@@ -53,19 +53,27 @@ router.put("/service/TCP/:id",(req,res)=>{
     let editar = undefined;
     var id = req.params.id;
     //achar o serviço pedido
+    let mudouNome = true;
+    var nome = req.body.nome;
+    var ip = req.body.ip;
+    var porta = req.body.porta;
     manager.getServices().forEach(servico => {
         if(servico.val().id == id){
             editar = servico;
+            if(servico.val().nome == nome){
+                mudouNome = false
+            }
         }
     });
     if(editar != undefined){
-        var nome = req.body.nome;
-        var ip = req.body.ip;
-        var porta = req.body.porta;
         //salva no firebase
-        manager.editarTCP(nome,ip,porta,id);
-        res.sendStatus(200);
-    }else res.sendStatus(400);
+        if(mudouNome && !validacaoTCP(nome,ip,porta)){
+            res.sendStatus(400)
+        }else if(!mudouNome || (mudouNome && validacaoTCP(nome,ip,porta))){
+            manager.editarTCP(nome,ip,porta,id);
+            res.sendStatus(200);
+        }
+    }
 });
 
 module.exports = router;
