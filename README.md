@@ -1,10 +1,8 @@
 # API
-
 Application Programming Interface **A.P.I.**  *(Interface de Programação de Aplicações)*  de comunicação e interconexão que unificar as [APICarcara](https://github.com/LaDICAUEFS/APICarcara) e [API-Servicos](https://github.com/LaDICAUEFS/API-Servicos) e  em uma só aplicação
 
-
 ## Estuturação de diretórios
-API está estruturada da seguinte forma :
+API está estruturada da seguinte forma:
 
 >![Estuturação de diretórios](https://github.com/LaDICAUEFS/API/blob/master/img/img.PNG)
 >
@@ -15,7 +13,6 @@ API está estruturada da seguinte forma :
 >*  **Servicos** : nele está a interface simples e intuitiva que  consome  o os endpoints do core da API permitindo  que os desenvolvedores realizem testes rápidos e assim comece a elaboração de interface mais complexa para o simulador , e também  possibilite  cadastra , atualizar , exibir  e  deletas os   módulos matemáticos  
 
 -------------------------------------------------------------------------
-
 ## Módulos
 * [Body Parser]( https://www.npmjs.com/package/body-parser ) - Pegar as informações do formulário.
 * [Express](https://expressjs.com/pt-br/ ) - Framework que gerencia as rotas
@@ -26,50 +23,64 @@ API está estruturada da seguinte forma :
 * [Firebase]( https://firebase.google.com/?hl=pt-br) - Banco de dados não relacional
 
 ------------------------------------------------------------------------
-
 ## Endpoints
 
 ### GET /
- Esse endpoint é responsável por retornar 
-
-#### Parametros
+ Esse endpoint é responsável por retornar em fromato  json a lista de dados que foram analisados e foram escrito em arquivo txt e que estão localizados no diretório **Dados**.
 
 #### Respostas
 
 ####  Exemplo de resposta
-
  ```
-
-
- 
- 
-
- 
+ [
+    {
+        "dado": "R R1 1 2 500.0"
+    },
+    {
+        "dado": "I FC1 2 3 0.01"
+    },
+    {
+        "dado": "C C1 0 3 1.0E-6"
+    },
+    {
+        "dado": "A I1 2 4 1.0E-6"
+    },
+    {
+        "dado": "M V1 3 5 1.0E9"
+    },
+    {
+        "dado": "R R2 1 6 500.0"
+    },
+    {
+        "dado": "R R3 0 7 500.0"
+    },
+    {
+        "dado": "C C2 4 5 1.0E-6"
+    },
+    {
+        "dado": "V VAC1 AC 1 0 100.0 60.0"
+    },
+    {
+        "dado": "V F1 DC 6 7 100.0"
+    },
+    {
+        "dado": ". TRAN 1.0E-5 0.0 5.0"
+    }
+]
 ```
+ > ##### Time:300ms  
+ > ##### Status: 200 OK 
 
 ### POST /
+Este endpoint é responsável por receber os dados que são sé analisados, para isso ele receberá os dados em formato Object convertido em json, para ser escrito em arquivo txt  no diretório **Dados**, para serem analisados posteriormente 
 
-
-#### Parametros
-
-#### Respostas
-
-####  Exemplo de resposta
-
+####  Exemplo de entrada de dados 
  ```
-
-
- 
- 
-
- 
+ dado: "R R1 1 2 500.0↵I FC1 2 3 0.01↵C C1 0 3 1.0E-6↵A I1 2 4 1.0E-6↵M V1 3 5 1.0E9↵R R2 1 6 500.0↵R R3 0 7 500.0↵C C2 4 5 1.0E-6↵V VAC1 AC 1 0 100.0 60.0↵V F1 DC 6 7 100.0↵. TRAN 1.0E-5 0.0 5.0"
 ```
-
-
-
-
-
-
+#### Respostas
+ > ##### Time: 250ms  
+ > ##### Status :  200 OK 
 
 ## End-Points
 
@@ -102,14 +113,11 @@ API está estruturada da seguinte forma :
         }
     }
 }
-
 ```
-
 
 #### GET (/services/:id) : Dados de um serviço cadastrado [Params: id] (Time: 27ms Status: 200 OK)
 
 ##### Exemplo( Saida ):
-
  ```
 {
     "service": {
@@ -129,26 +137,21 @@ API está estruturada da seguinte forma :
 #### POST (/service/Arquivo): Cadastra um modulo que utiliza arquivo para comunicação com a api 
 ##### Exemplo (Dados Corretos): (Time: 15ms Status 200 OK)
 ##### Exemplo( Entrada) :
-
  ```
 {
     "nome": "Mosfet",
     "dir": "C:\\Users\\lsjsa\\OneDrive\\Documentos\\Mosfet.txt"
 }
- 
 ```
 
 ##### Exemplo (Nome já cadastrado ou não existe o arquivo no servidor):
 ##### Entrada: (Time: 27ms Status 200 Bad Request)
-
  ```
 {
     "nome": "TransistorTBJ",
     "dir": "C:\\Users\\lsjsa\\OneDrive\\Documentos\\Mosfet.txt"
 }
- 
 ```
-
 
 #### PUT (/service/Arquivo/:id): Edita um modulo que utiliza arquivo para comunicação com a api
 #### Entrada:(Dados Corretos): (Time: 16ms Status 200 OK)
@@ -167,6 +170,7 @@ API está estruturada da seguinte forma :
     "dir": "C:\\Users\\lsjsa\\OneDrive\\Documentos\\Mosfet.txt"
 }
 ```
+
 #### TCP Services
 #### POST (/service/TCP): Cadastra um modulo que utiliza TCP/IP para comunicação com a api
 #### Exemplo (Dados Corretos): (Time: 270ms Status 200 OK)
@@ -178,6 +182,7 @@ Entrada:
     "porta": "1020"		
 }
 ```
+
 #### Exemplo (Nome já cadastrado, porta sem receber um inteiro, ou o formato da string do IP esteja incorreto):(Time: 23ms Status 400 Bad Request)
  ```
 {
@@ -186,6 +191,7 @@ Entrada:
     "porta": "1010"		
 }
 ```
+
 #### PUT (/service/TCP/:id): Edita um modulo que utiliza TCp/IP para comunicação com a api
 #### Exemplo (Dados Corretos): (Time: 25ms Status 200 OK)
 #### Entrada:
@@ -196,6 +202,7 @@ Entrada:
     "porta": "1010"		
 }
 ```
+
 #### Exemplo (Nome já cadastrado):(Time: 51ms Status 400 Bad Request)
 ``` 
 {
@@ -204,22 +211,18 @@ Entrada:
     "porta": "1010"		
 }
 ```
->> **(Obs na rota PUT tem que colocar a validação (no testei ajeitei o meu mas tem que ajeitar no git))**
-
+>> **(Obs na rota PUT tem que colocar a validação )**
 _____________________________________________________________________
 
-
-
 _____________________________________________________________________
-
 # Orientadora 
-* Professora Ana Cláudia Fiorin 
+* Professora **Ana Cláudia Fiorin**
 
 # Laboratório
-* [LaDICA](https://github.com/LaDICAUEFS)
+* [Laboratório de Desenvolvimento Interdisciplinar em Computação Aplicada - LaDICA](https://github.com/LaDICAUEFS)
 
 # Instituição 
-* [UEFS](https://github.com/UEFS)
+* [Universidade Estadual de Feira de Santana - UEFS](https://github.com/UEFS)
 
 # Desenvolvedores 
 * [Marcos Ramos](https://github.com/themarcosramos)
