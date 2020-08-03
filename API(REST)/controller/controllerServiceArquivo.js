@@ -62,26 +62,48 @@ router.post("/service/Arquivo", (req,res) => {
 //rota para edição, salvar as informações novas
 router.put("/service/Arquivo/:id",(req,res)=>{
     let editar = undefined;
+    let mudouNome = true;
+    let mudouDir = true;
+    var nome = req.body.nome;
+    var dir = req.body.dir;
     var id = req.params.id;
     //achar o serviço pedido
     manager.getServices().forEach(servico => {
         if(servico.val().id == id){
             editar = servico;
+            if(servico.val().nome == nome){
+                mudouNome = false;
+            }
+            if(servico.val().diretorio == dir){
+                mudouDir = false;
+            }
         }
     });
     if(editar != undefined){
-        var nome = req.body.nome;
-        var dir = req.body.dir;
-        fs.access(dir, fs.constants.F_OK, (err) => {
-            if(err){
-                console.log(err)
-                res.sendStatus(400);
-            }else{
-                //salva no firebase
-                manager.editarArquivo(nome,dir,id);
-                res.sendStatus(200);
-            }
-        });
+        console.log(mudouNome)
+        console.log(mudouDir)
+        if( mudouNome && jaExiste(nome)){
+            console.log('Entrou nome')
+            res.sendStatus(400)
+        }else if(mudouDir && jaExisteDir(dir)){
+            console.log('Entrou dir')
+            res.sendStatus(400)
+        }else if(mudouNome && !jaExiste(nome) && !mudouDir){
+            manager.editarArquivo(nome,dir,id);
+            res.sendStatus(200);
+        }
+        else{
+            fs.access(dir, fs.constants.F_OK, (err) => {
+                if(err){
+                    console.log(err)
+                    res.sendStatus(400);
+                }else{
+                    //salva no firebase
+                    manager.editarArquivo(nome,dir,id);
+                    res.sendStatus(200);
+                }
+            });
+        }
     }
 });
 
