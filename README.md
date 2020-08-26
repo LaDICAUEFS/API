@@ -6,27 +6,27 @@ API está estruturada da seguinte forma:
 
 >![Estuturação de diretórios](https://github.com/LaDICAUEFS/API/blob/master/img/img.PNG)
 >
->*  **API(REST)** : nele se encontrar o core da api, responsável por realizar os processos serialização e desserialização com os dados que são enviados para analise, produzindo assim os a lista de dados que vão se analisados matematicamente e também  a realização de  cadastros , exibição , edição , deleção *(C.R.U.D.)* de módulos de analise matemática  pelo protocolo TCP/IP  ou for arquivo.
+>*  **API(REST)** : nele se encontrar o core da api, responsável por realizar os processos serialização e desserialização com os dados que são enviados para analise, produzindo assim os a lista de dados que vão se analisados matematicamente e também a realização de cadastros, exibição, edição, deleção *(C.R.U.D.)* de módulos de analise matemática  pelo protocolo TCP/IP  ou for arquivo.
 >
 >*  **Dados** : nele fica armazenados que foram serializados pela api, é nele onde os módulos de analise matemática pegará as listas de dados a ser analisados, e é nele que os módulos serialização os resultados das analise matemática.
 >
->*  **Servicos** : nele está a interface simples e intuitiva que  consome  o os endpoints do core da API permitindo  que os desenvolvedores realizem testes rápidos e assim comece a elaboração de interface mais complexa para o simulador , e também  possibilite  cadastra , atualizar , exibir  e  deletas os   módulos matemáticos  
+>*  **Servicos** :nele está a interface simples e intuitiva que consome o os endpoints do core da API permitindo que os desenvolvedores realizem testes rápidos e assim comece a elaboração de interface mais complexa para o simulador, e também possibilite cadastra, atualizar, exibir e deletas os   módulos matemáticos.  
 
 -------------------------------------------------------------------------
 ## Módulos
 * [Body Parser]( https://www.npmjs.com/package/body-parser ) - Pegar as informações do formulário.
-* [Express](https://expressjs.com/pt-br/ ) - Framework que gerencia as rotas
-* [EJS]( https://ejs.co/)  -  é uma engine de visualização, com ele conseguimos de uma maneira fácil e simples transportar dados do back-end para o front-end. 
-* [Cors](https://www.npmjs.com/package/cors ) - Mecanismo utilizado pelos navegadores para compartilhar recursos entre diferentes origens.
+* [Express](https://expressjs.com/pt-br/ ) - Framework que gerencia as rotas. 
+* [EJS]( https://ejs.co/)  -  É uma engine de visualização, com ele conseguimos de uma maneira fácil e simples transportar dados do back-end para o front-end.
+* [Cors](https://www.npmjs.com/package/cors ) - Mecanismo utilizado pelos navegadores para compartilhar recursos entre diferentes.  origens.
 * [Axios ](https://github.com/axios/axios ) - É um cliente HTTP, que funciona tanto no browser quanto em node.js. Isso significa que o mesmo código utilizado para fazer requisições ajax no browser também funciona no servidor.
 * [Bootstrap](https://getbootstrap.com/) - É um framework web com para desenvolvimento de componentes de interface e front-end para sites e aplicações web usando HTML, CSS e JavaScript.
-* [Firebase]( https://firebase.google.com/?hl=pt-br) - Banco de dados não relacional
+* [Firebase]( https://firebase.google.com/?hl=pt-br) - Banco de dados não relacional. 
 
 ------------------------------------------------------------------------
 ## Endpoints
 
 ### GET /
- Esse endpoint é responsável por retornar em fromato  json a lista de dados que foram analisados e foram escrito em arquivo txt e que estão localizados no diretório **Dados**.
+ Esse endpoint é responsável por retornar em formato json a lista de dados que foram analisados e foram escrito em arquivo txt e que estão localizados no diretório **Dados**.
 
 #### Respostas
 
@@ -72,7 +72,7 @@ API está estruturada da seguinte forma:
  > ##### Status: 200 OK 
 
 ### POST /
-Este endpoint é responsável por receber os dados que são sé analisados, para isso ele receberá os dados em formato Object convertido em json, para ser escrito em arquivo txt  no diretório **Dados**, para serem analisados posteriormente 
+Este endpoint é responsável por receber os dados que são sé analisados, para isso ele receberá os dados em formato Object convertido em json, para ser escrito em arquivo txt no diretório **Dados**, para serem analisados posteriormente.
 
 ####  Exemplo de entrada de dados 
  ```
@@ -134,7 +134,7 @@ Este endpoint é responsável por receber os dados que são sé analisados, para
 
 ### Archives Services
 
-#### POST (/service/Arquivo): Cadastra um modulo que utiliza arquivo para comunicação com a api 
+#### POST (/service/Arquivo): Cadastra um modulo que utiliza arquivo para comunicação com a api
 ##### Exemplo (Dados Corretos): (Time: 15ms Status 200 OK)
 ##### Exemplo( Entrada) :
  ```
@@ -192,7 +192,7 @@ Entrada:
 }
 ```
 
-#### PUT (/service/TCP/:id): Edita um modulo que utiliza TCp/IP para comunicação com a api
+#### PUT (/service/TCP/:id): Edita um modulo que utiliza TCP/IP para comunicação com a api
 #### Exemplo (Dados Corretos): (Time: 25ms Status 200 OK)
 #### Entrada:
 ```
@@ -226,5 +226,5 @@ ____________________________________________________________________
 * [Marcos Ramos](https://github.com/themarcosramos)
 * [Samuel Lima ](https://github.com/SamuelLima0610)
 
-# colaboradores 
+# Colaboradores 
 * [Lara Esquivel ](https://github.com/Laikel)
